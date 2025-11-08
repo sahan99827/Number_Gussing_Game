@@ -2,20 +2,27 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
-
+body{
+    background: #0582f7;
+    background: radial-gradient(circle, rgba(5, 130, 247, 1) 0%, rgba(217, 233, 250, 1) 100%);
+}    
 .mt{
     margin-top: 300px;
 }
 
 .card{
-    background-color: #ffffff;
     border-radius: 30px;
     box-shadow: 24px 24px 24px 24px rgba(157, 13, 13, 0.1);
+    background: #ffffff;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(235, 235, 255, 1) 35%, rgba(105, 230, 255, 1) 100%);
 }
 
 .card-header{
-    background-color: #343a40;
+   background: #f5edfa;
+    background: linear-gradient(90deg, rgba(245, 237, 250, 1) 0%, rgba(196, 12, 12, 1) 50%, rgba(255, 255, 255, 1) 100%);
     color: white;
     font-size: 24px;
     text-align: center;

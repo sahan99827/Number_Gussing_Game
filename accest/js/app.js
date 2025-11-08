@@ -7,7 +7,7 @@ function checkGuess() {
   const result = document.getElementById("result");
 
   // Input validation
-  if ( userGuess > 10 || isNaN(userGuess)) {
+  if (userGuess < 1 || userGuess > 10 || isNaN(userGuess)) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -19,7 +19,6 @@ function checkGuess() {
     return;
   }
 
-  
   attempts++;
 
   // Correct guess
