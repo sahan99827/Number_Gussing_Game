@@ -7,16 +7,19 @@ function checkGuess() {
   const result = document.getElementById("result");
 
   // Input validation
-  if (userGuess < 1 || userGuess > 10 || isNaN(userGuess)) {
-    alert("Please enter a valid number between 1 and 10.");
+  if ( userGuess > 10 || isNaN(userGuess)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please enter a valid number between 1 and 10.",
+      position: "top-end",
+      timer: 2000,
+      showConfirmButton: false,
+    });
     return;
   }
 
-  if (!Number.isInteger(userGuess)) {
-    alert("Please enter an integer value.");
-    return;
-  }
-
+  
   attempts++;
 
   // Correct guess
@@ -24,16 +27,20 @@ function checkGuess() {
     result.textContent = "🎉 Congratulations! You guessed the correct number!";
     result.style.color = "green";
     disableGame();
-  } 
+  }
   // Wrong guess but still have attempts left
   else if (attempts < maxAttempts) {
     if (userGuess < randomNum) {
-      result.textContent = `Too low! You have ${maxAttempts - attempts} attempt(s) left.`;
+      result.textContent = `Too low! You have ${
+        maxAttempts - attempts
+      } attempt(s) left.`;
     } else {
-      result.textContent = `Too high! You have ${maxAttempts - attempts} attempt(s) left.`;
+      result.textContent = `Too high! You have ${
+        maxAttempts - attempts
+      } attempt(s) left.`;
     }
     result.style.color = "orange";
-  } 
+  }
   // Out of attempts
   else {
     result.textContent = `❌ Sorry, you've used all ${maxAttempts} attempts. The correct number was ${randomNum}.`;
@@ -47,7 +54,28 @@ function disableGame() {
   document.querySelector("button").disabled = true;
 
   setTimeout(() => {
-    if (confirm("Do you want to play again?")) {
+    if (
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to play again?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, play again!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            position: "top-end",
+            title: "Game Reset!",
+            text: "Starting a new game.",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+    ) {
       resetGame();
     }
   }, 1000);
