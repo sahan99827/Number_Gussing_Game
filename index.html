@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Number Gussing Game</title>
-        <link rel="stylesheet" href="accest/css/Style.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </head>
-    <body>
-        <div class="container mt-3">
-            <div class="row">
-                  <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="accest/css/Style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="card game-card">
+                    <div class="card-header">
+                        🎮 Number Guessing Game 🎯
                     </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-3 mt justify-content-center d-flex">
-                    <div class="card " style="width: 60rem; height: 23rem;">
-                        <div class="card-header bg-danger text-white text-center">
-                            Number Gussing Game
-                        </div>
-                        <div class="card-body justify-content-center text-center mt-5"> 
-                            <input id="userGuess" class="form-control form-control-lg" type="text" placeholder="Your Enter Gussing Number" aria-label=".form-control-lg example">
-                            <button class="btn btn-outline-primary mb-4 mt-4" onclick="checkGuess()" >Play Game</button>
-                            <label id="result" class="mt-3 d-block text-center col-form-label" ></label>
-                            <label id="lblsize" class="mt-3 d-block text-center col-form-label"></label>
-                        </div>
+                    <div class="card-body">
+                        <div class="game-icon">🎲</div>
+                        <h5 class="mb-4">Guess a number between 1 and 10!</h5>
+                        <input 
+                            id="userGuess" 
+                            class="form-control game-input mb-3" 
+                            type="number" 
+                            placeholder="Enter your guess..." 
+                            min="1" 
+                            max="10"
+                        >
+                        <button class="btn play-btn mb-4" onclick="checkGuess()">
+                            🎯 Play Game
+                        </button>
+                        <div id="result"></div>
+                        <div id="attemptsDisplay"></div>
                     </div>
                 </div>
-                   <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                    </div>
             </div>
-
         </div>
-        <script src="accest/js/app.js"></script>
-    </body>
+    </div>
+
+    <script src="accest/js/app.js"></script>
+</body>
 </html>
