@@ -10,9 +10,6 @@ Play it on GitHub Pages: [https://sahan99827.github.io/Number_Gussing_Game/](htt
 
 ---
 
-## 📸 Screenshot
-
-![Screenshot](./screenshot.png)
 
 ---
 
